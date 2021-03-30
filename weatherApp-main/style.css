@@ -77,7 +77,9 @@ body {
     width: 40%
 }
 
-
+.card-2 .row {
+    justify-content: center
+}
 
 .card-3 .row {
     justify-content: center

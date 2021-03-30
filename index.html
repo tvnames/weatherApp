@@ -1,138 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link href= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> 
-     <link src="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css"/>
-    <title>Your Weather</title>
-</head>
-<body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Weather Dashboard</h1>
-          <div class="container">
 
-            <nav class="navbar navbar-light bg-light">
-              <form class="form-inline">
-                <input id="searchImput" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </nav>
-            
-            <div class="card card-1">
-                <div id="demo" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p> 
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="temp">23&deg;</div>
-                                    <div class="location"></div>
-                                </div>
-                                <div class="col-6 justify-content-right"> <img class="img-fluid" src="https://img.icons8.com/plasticine/100/000000/sun.png"> </div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Your Weather</title>
+        <!--Bootstrap CSS CDN-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+        <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <!--Jumbotron for Title-->
+        <div class="jumbotron container-fluid mt-2 text-center p-2" style="background-color:#0c0101 ;color: white;">
+            <h1> <strong>Weather Dashboard</strong></h1>
+        </div>
+        <div class="container">
+            <!--Row for searching a city-->
+            <div class="row">
+                <div class="col-sm-4 bg-light">
+                    <!--Here we create an HTML form for handling the inputs-->
+                    <h4 class="pt-1"><strong>Search for a City:</strong></h4>
+                    <!--Here we create the text box for capturing the search city Name-->
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control"id="search-city" aria-label="City Search" aria-describedby="search-button">
+                        <div class="input-group-append">
+                            <button class=" btn bg-primary text-light" id="search-button"><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <!--section for search city history-->
+                    <button class=" btn btn-primary" type="button" id="clear-history">Clear history</button>
+                    <ul class="list-group">
+    
+                    </ul>
+                </div>   
+                <div class="col-sm-8">
+                    <div class="row ml-2 border border-dark rounded">
+                        <div class="col-sm-12" id="current-weather">
+                            <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+                            <p>Temperature:<span class="current" id="temperature"></span></p>
+                            <p>Humidity:<span class="current" id="humidity"></span></p> 
+                            <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+                            <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p> 
+                        </div>
+                    </div>
+                
+                    <div class="col-sm-12" id ="future-weather">
+                        <h3>5-Day Forecast:</h3>
+                        <div class="row text-light">
+                            <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                                <p id="fDate0"></p>
+                                <p id="fImg0"></p>
+                                <p>Temp:<span id="fTemp0"></span></p>
+                                <p>Humidity:<span id="fHumidity0"></span></p>
+                            </div>
+                            <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                                <p id="fDate1"></p>
+                                <p id="fImg1"></p>
+                                <p>Temp:<span id="fTemp1"></span></p>
+                                <p>Humidity:<span id="fHumidity1"></span></p>
+                            </div>
+                            <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                                <p id="fDate2"></p>
+                                <p id="fImg2"></p>
+                                <p>Temp:<span id="fTemp2"></span></p>
+                                <p>Humidity:<span id="fHumidity2"></span></p>
+                            </div>
+                            <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
+                                <p id="fDate3"></p>
+                                <p id="fImg3"></p>
+                                <p>Temp:<span id="fTemp3"></span></p>
+                                <p>Humidity:<span id="fHumidity3"></span></p>
+                            </div>
+                            <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
+                                <p id="fDate4"></p>
+                                <p id="fImg4"></p>
+                                <p>Temp:<span id="fTemp4"></span></p>
+                                <p>Humidity:<span id="fHumidity4"></span></p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="card card-2">
-                <div id="demo" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0"></li>
-                        <li data-target="#demo" data-slide-to="1" class="active"></li>
-                        <li data-target="#demo" data-slide-to="2"></li>
-                    </ul> <!-- The slideshow -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="row row1">21&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
-                                    <div class="row row3">12:00</div>
-                                    <div class="row row4">PM</div>
-                                </div>
-                                <div class="col">
-                                    <div class="row row1">20&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
-                                    <div class="row row3">1:00</div>
-                                    <div class="row row4">PM</div>
-                                </div>
-                                <div class="col">
-                                    <div class="row row1">20&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
-                                    <div class="row row3">2:00</div>
-                                    <div class="row row4">PM</div>
-                                </div>
-                                <div class="col">
-                                    <div class="row row1">19&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
-                                    <div class="row row3">3:00</div>
-                                    <div class="row row4">PM</div>
-                                </div>
-                                <div class="col">
-                                    <div class="row row1">18&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/cotton/64/000000/rain--v3.png" /></div>
-                                    <div class="row row3">4:00</div>
-                                    <div class="row row4">PM</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card card-3">
-                <div id="demo" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ul class="carousel-indicators">
-                        <li data-target="#demo" data-slide-to="0"></li>
-                        <li data-target="#demo" data-slide-to="1"></li>
-                        <li data-target="#demo" data-slide-to="2" class="active"></li>
-                    </ul> <!-- The slideshow -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col">
-                                    <div class="row row1">21&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
-                                    <div class="row row3">Mon</div>
-                                </div>
-                                <div class="col">
-                                    <div class="row row1">20&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
-                                    <div class="row row3">Tue</div>
-                                </div>
-                                <div class="col">
-                                    <div class="row row1">16&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
-                                    <div class="row row3">Wed</div>
-                                </div>
-                                <div class="col">
-                                    <div class="row row1">17&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
-                                    <div class="row row3">Thu</div>
-                                </div>
-                                <div class="col">
-                                    <div class="row row1">18&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/cotton/64/000000/rain--v3.png" /></div>
-                                    <div class="row row3">Fri</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
-        </div>
-      </div>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-      <script src="script.js"></script>
+        <!--jQuery JS-->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+        <!--Code to Jvascript File-->
+        <script src="script.js"></script>
     </body>
-</html>
+    </html>
