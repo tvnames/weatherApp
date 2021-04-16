@@ -78,12 +78,12 @@ function getFiveDayForecast(data) {
   return response.json();
 })
 .then(function (data) {
-  var futureCast = document.getElementById("col1","col2","col3","col4");
-  futureCast.innerHTML = data.list[1].value;
-  futureCast.innerHTML = data.list[7].value;
-  futureCast.innerHTML = data.list[14].value;
-  futureCast.innerHTML = data.list[21].value;
-  futureCast.innerHTML = data.list[28].value;
+ console.log(data);
+  document.getElementById('col1').innerHTML = data.daily[1].temp.day;
+  document.getElementById('day2').src = `http://openweathermap.org/img/wn/${data.daily[2].weather[0].icon}.png`;
+  // futureCast.innerHTML = data.list[14].value;
+  // futureCast.innerHTML = data.list[21].value;
+  // futureCast.innerHTML = data.list[28].value;
   console.log(data.list[0]);
 })
   //   var futureCast = document.querySelector("#col");
