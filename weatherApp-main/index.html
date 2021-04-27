@@ -8,7 +8,7 @@
     <link href= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"> 
      <link src="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css"/>
+
     <title>Your Weather</title>
 </head>
 <body>
@@ -34,11 +34,11 @@
                         <div class="carousel-item active">
                             <div class="row">
                                 <div class="col-6">
-                                    <div class="temp">23&deg;</div>
-                                    <div class="location"></div>
+                                    <div id='temp' class='temp'>23&deg;</div>
+                                    <div id='cityLook'class="location"></div>
                         
                                 </div>
-                                <div class="col-6 justify-content-right"> <img class="img-fluid" src="https://img.icons8.com/plasticine/100/000000/sun.png"> </div>
+                                <div class="col-6 justify-content-right"> <img id='today' class="img-fluid" src="https://img.icons8.com/plasticine/100/000000/sun.png"> </div>
                             </div>
                         </div>
                     </div>
@@ -46,6 +46,13 @@
             </div>
            <main>
             <div class="card card-3">
+                <div id='citiesCard' class="citiesCard">
+                    <div class="container">
+                      <h4>Cities Searched</h4>
+                      <ul id='cityList'> 
+                      </ul>
+                    </div>
+                  </div>
                 <div id="demo" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ul class="carousel-indicators">
@@ -57,28 +64,28 @@
                         <div class="carousel-item active">
                             <div class="row">
                                 <div id= "col1" class="col">
-                                    <div class="row row1">21&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
+                                    <div id='temp' class="row row1">21&deg;</div>
+                                    <div class="row row2"><img id='day1' class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
                                     <div class="row row3">Mon</div>
                                 </div>
                                 <div class="col">
-                                    <div class="row row1">20&deg;</div>
+                                    <div id='temp' class="row row1">20&deg;</div>
                                     <div class="row row2"><img id='day2' class="img-fluid" src="https://img.icons8.com/ios/100/000000/sun.png" /></div>
                                     <div class="row row3">Tue</div>
                                 </div>
                                 <div id="col2" class="col">
-                                    <div class="row row1">16&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
+                                    <div id='temp' class="row row1">16&deg;</div>
+                                    <div class="row row2"><img id='day3' class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
                                     <div class="row row3">Wed</div>
                                 </div>
                                 <div id="col3" class="col">
-                                    <div class="row row1">17&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
+                                    <div id='temp' class="row row1">17&deg;</div>
+                                    <div class="row row2"><img id='day4' class="img-fluid" src="https://img.icons8.com/windows/100/000000/cloud.png" /></div>
                                     <div class="row row3">Thu</div>
                                 </div>
                                 <div id="col4" class="col">
-                                    <div class="row row1">18&deg;</div>
-                                    <div class="row row2"><img class="img-fluid" src="https://img.icons8.com/cotton/64/000000/rain--v3.png" /></div>
+                                    <div id='temp' class="row row1">18&deg;</div>
+                                    <div class="row row2"><img id='day5' class="img-fluid" src="https://img.icons8.com/cotton/64/000000/rain--v3.png" /></div>
                                     <div class="row row3">Fri</div>
                                 </div>
                             </div>
